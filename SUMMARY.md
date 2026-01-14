@@ -7,7 +7,7 @@ In response to the issue "Create work items", I have analyzed the Design documen
 ## Files Created
 
 ### 1. **WORK_ITEMS.md** (25 KB)
-The main deliverable - a comprehensive breakdown of **37 detailed work items** (GitHub issues) for implementing the Adulting Simulator. Each work item includes:
+The main deliverable - a comprehensive breakdown of **40 detailed work items** (GitHub issues) for implementing the Adulting Simulator. Each work item includes:
 
 - **Clear title and description**
 - **Priority level** (High/Medium/Low)
@@ -16,17 +16,20 @@ The main deliverable - a comprehensive breakdown of **37 detailed work items** (
 - **Acceptance criteria** for completion
 - **Dependencies and relationships** to other issues
 
+**Tech Stack Explicitly Defined:**
+- **Frontend:** Next.js 14+ with **TypeScript** (required)
+- **Backend:** **.NET Core 10** with **Minimal API** (required)
+
 **Organization:**
-- Phase 1: Project Setup & Foundation (3 issues)
-- Phase 2: Core Game Logic (6 issues)
-- Phase 3: UI Components (7 issues)
+- Phase 1: Project Setup & Foundation (6 issues - Frontend + Backend)
+- Phase 2: Core Game Logic (6 issues - Backend calculations)
+- Phase 3: UI Components (7 issues - Frontend TypeScript)
 - Phase 4: Data & Configuration (4 issues)
 - Phase 5: Features & Polish (8 issues)
 - Testing & Quality Assurance (5 issues)
-- Deployment (2 issues)
-- Additional enhancements (2 issues)
+- Deployment (4 issues - Frontend + Backend)
 
-**Total: 37 work items** spanning approximately 8-12 weeks of development.
+**Total: 40 work items** spanning approximately 8-12 weeks of development.
 
 ### 2. **IMPLEMENTATION_ROADMAP.md** (15 KB)
 A practical guide for implementing the project, including:

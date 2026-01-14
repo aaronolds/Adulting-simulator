@@ -46,12 +46,22 @@ Before starting implementation:
 
 ## 🛠️ Planned Tech Stack
 
-- **Framework:** Next.js (React)
-- **Language:** TypeScript
+### Frontend
+- **Framework:** Next.js 14+ (React with App Router)
+- **Language:** TypeScript (required for type safety)
 - **Styling:** TailwindCSS (recommended)
 - **Charts:** Recharts or similar
 - **Testing:** Jest + React Testing Library
-- **Deployment:** Vercel (recommended)
+
+### Backend
+- **Framework:** .NET Core 10
+- **API Style:** Minimal API
+- **Language:** C#
+- **Testing:** xUnit or NUnit
+
+### Deployment
+- **Frontend:** Vercel (recommended)
+- **Backend:** Azure App Service or similar
 
 ## 📖 Educational Goals
 

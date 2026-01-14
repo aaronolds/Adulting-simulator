@@ -2,59 +2,133 @@
 
 This document outlines the recommended work items (GitHub issues) to implement the Adulting Simulator design. Each item is structured as a self-contained task with clear acceptance criteria.
 
+## 🛠️ Tech Stack Requirements
+
+**Frontend (Required):**
+- Next.js 14+ with App Router
+- **TypeScript** (required for type safety)
+- TailwindCSS for styling
+- Recharts for data visualization
+
+**Backend (Required):**
+- **.NET Core 10** with **Minimal API**
+- C# for backend logic
+- Entity Framework Core (optional, for database)
+
+**Architecture:**
+- Frontend: TypeScript-based React application
+- Backend: .NET Core 10 Minimal API for calculations and data management
+- Communication: RESTful API between frontend and backend
+
 ---
 
 ## Phase 1: Project Setup & Foundation
 
-### Issue 1: Initialize Next.js Project Structure
+### Issue 1: Initialize Next.js Frontend Project with TypeScript
 **Priority:** High  
-**Labels:** setup, infrastructure
+**Labels:** setup, infrastructure, frontend, typescript
 
 **Description:**
-Set up a new Next.js project with TypeScript support for the Adulting Simulator application.
+Set up a new Next.js 14+ project with **TypeScript** support for the Adulting Simulator frontend application.
 
 **Tasks:**
-- Initialize Next.js project with TypeScript
-- Configure ESLint and Prettier
-- Set up folder structure (components, pages, lib, types, data)
-- Add basic package.json scripts (dev, build, lint)
+- Initialize Next.js project with TypeScript using `create-next-app`
+- Ensure TypeScript is configured (tsconfig.json)
+- Configure ESLint and Prettier for TypeScript
+- Set up folder structure (components, app, lib, types, data)
+- Add basic package.json scripts (dev, build, lint, type-check)
 - Create .gitignore for node_modules and build artifacts
 
 **Acceptance Criteria:**
 - Project runs with `npm run dev`
-- TypeScript compilation works without errors
+- TypeScript compilation works without errors (`npm run type-check`)
 - Basic folder structure is in place
+- TypeScript strict mode is enabled
 
 ---
 
-### Issue 2: Define Core Data Models and TypeScript Types
+### Issue 2: Initialize .NET Core 10 Backend with Minimal API
 **Priority:** High  
-**Labels:** foundation, typescript
+**Labels:** setup, infrastructure, backend, dotnet
 
 **Description:**
-Create TypeScript interfaces and types for all core game entities based on the design document.
+Set up a new .NET Core 10 project using **Minimal API** pattern for the Adulting Simulator backend.
 
 **Tasks:**
-- Create types for Job (salary, hourly wage, hours, pay frequency)
-- Create types for Tax Configuration (filing status, rates, brackets)
-- Create types for Benefits (health plans, 401k options)
-- Create types for Expenses (housing, transportation, subscriptions, etc.)
-- Create types for Life Events (probability, severity, cost)
-- Create types for Player State (income, expenses, savings, debt, credit score)
+- Initialize .NET Core 10 project with Minimal API template
+- Configure project structure (Services, Models, DTOs)
+- Set up CORS for frontend communication (Next.js origin)
+- Add necessary NuGet packages (if needed for JSON, validation, etc.)
+- Configure appsettings.json for development and production
+- Set up logging and error handling middleware
+- Create .gitignore for bin, obj, and build artifacts
+- Configure Swagger/OpenAPI for API documentation
 
 **Acceptance Criteria:**
-- All types are properly defined in `types/` directory
-- Types match the design document requirements
-- No TypeScript compilation errors
+- Backend runs with `dotnet run`
+- Minimal API health check endpoint responds successfully
+- CORS is configured to allow frontend origin
+- Swagger UI is accessible at /swagger endpoint
+- Basic project structure follows Minimal API patterns
 
 ---
 
-### Issue 3: Create JSON Configuration Files for Game Data
+### Issue 3: Define TypeScript Types for Frontend
+**Priority:** High  
+**Labels:** foundation, typescript, frontend
+
+**Description:**
+Create **TypeScript** interfaces and types for all core game entities in the frontend application.
+
+**Tasks:**
+- Create TypeScript types for Job (salary, hourly wage, hours, pay frequency)
+- Create TypeScript types for Tax Configuration (filing status, rates, brackets)
+- Create TypeScript types for Benefits (health plans, 401k options)
+- Create TypeScript types for Expenses (housing, transportation, subscriptions, etc.)
+- Create TypeScript types for Life Events (probability, severity, cost)
+- Create TypeScript types for Player State (income, expenses, savings, debt, credit score)
+- Create TypeScript types for API request/response contracts
+
+**Acceptance Criteria:**
+- All TypeScript types are properly defined in `types/` directory
+- Types match the design document requirements
+- No TypeScript compilation errors
+- Types are exported and can be imported throughout the application
+
+---
+
+### Issue 4: Define C# Models for Backend
+**Priority:** High  
+**Labels:** foundation, backend, dotnet, csharp
+
+**Description:**
+Create C# record types and DTOs in the **.NET Core 10** backend to match frontend TypeScript types.
+
+**Tasks:**
+- Create C# models for Job (salary, hourly wage, hours, pay frequency)
+- Create C# models for Tax Configuration (filing status, rates, brackets)
+- Create C# models for Benefits (health plans, 401k options)
+- Create C# models for Expenses (housing, transportation, subscriptions, etc.)
+- Create C# models for Life Events (probability, severity, cost)
+- Create C# models for Player State (income, expenses, savings, debt, credit score)
+- Create DTOs for API request/response contracts
+- Ensure models use appropriate C# features (records, nullable reference types)
+
+**Acceptance Criteria:**
+- All C# models are properly defined in Models/ directory
+- Models match TypeScript types for consistency
+- Models follow C# naming conventions (PascalCase)
+- No compilation errors
+- DTOs are optimized for API serialization
+
+---
+
+### Issue 5: Create JSON Configuration Files for Game Data
 **Priority:** High  
 **Labels:** data, configuration
 
 **Description:**
-Set up JSON files containing game data like job listings, rent tiers, subscription prices, and tax rates.
+Set up JSON files containing game data like job listings, rent tiers, subscription prices, and tax rates. These will be used by both frontend and backend.
 
 **Tasks:**
 - Create `data/jobs.json` with sample jobs and salaries
@@ -67,13 +141,42 @@ Set up JSON files containing game data like job listings, rent tiers, subscripti
 **Acceptance Criteria:**
 - JSON files are valid and can be imported
 - Data covers realistic ranges for all categories
-- Data structure matches TypeScript types
+- Data structure matches TypeScript types and C# models
+
+---
+
+### Issue 6: Implement Backend Calculation API with Minimal API
+**Priority:** High  
+**Labels:** feature, calculation, backend, dotnet
+
+**Description:**
+Build backend calculation service using **.NET Core 10 Minimal API** pattern for financial calculations.
+
+**Tasks:**
+- Create CalculationService for income, tax, and expense calculations
+- Implement Minimal API endpoints:
+  - POST /api/calculate/income - Calculate gross and net income
+  - POST /api/calculate/taxes - Calculate tax deductions
+  - POST /api/calculate/cashflow - Calculate monthly cash flow
+  - GET /api/data/jobs - Get job listings
+  - GET /api/data/expenses - Get expense options
+- Implement request validation using Data Annotations
+- Add error handling and structured logging
+- Return consistent API response format
+- Document endpoints with XML comments for Swagger
+
+**Acceptance Criteria:**
+- All Minimal API endpoints work correctly
+- API returns proper HTTP status codes (200, 400, 500)
+- Calculations match business logic requirements
+- Endpoints are documented in Swagger/OpenAPI
+- CORS allows frontend to call endpoints
 
 ---
 
 ## Phase 2: Core Game Logic
 
-### Issue 4: Implement Income Calculation Engine
+### Issue 7: Implement Income Calculation Engine (Backend)
 **Priority:** High  
 **Labels:** feature, calculation
 
@@ -95,7 +198,7 @@ Build the core logic for calculating gross pay based on salary or hourly wages.
 
 ---
 
-### Issue 5: Implement Tax Calculation System
+### Issue 8: Implement Tax Calculation System
 **Priority:** High  
 **Labels:** feature, calculation
 
@@ -118,7 +221,7 @@ Create a tax calculation engine that handles federal, state, and FICA taxes.
 
 ---
 
-### Issue 6: Implement Benefits Deduction System
+### Issue 9: Implement Benefits Deduction System
 **Priority:** Medium  
 **Labels:** feature, calculation
 
@@ -139,7 +242,7 @@ Build the system for calculating and deducting benefits from gross pay.
 
 ---
 
-### Issue 7: Implement Expense Tracking System
+### Issue 10: Implement Expense Tracking System
 **Priority:** High  
 **Labels:** feature, calculation
 
@@ -163,7 +266,7 @@ Create logic for tracking and calculating monthly expenses.
 
 ---
 
-### Issue 8: Implement Random Life Events System
+### Issue 11: Implement Random Life Events System
 **Priority:** Medium  
 **Labels:** feature, game-logic
 
@@ -186,7 +289,7 @@ Build a system for generating and applying random life events during gameplay.
 
 ---
 
-### Issue 9: Implement Monthly Cash Flow Calculator
+### Issue 12: Implement Monthly Cash Flow Calculator
 **Priority:** High  
 **Labels:** feature, calculation
 
@@ -214,7 +317,7 @@ Create the main cash flow engine that ties income, expenses, and events together
 
 ## Phase 3: UI Components
 
-### Issue 10: Create Job Selection Page
+### Issue 13: Create Job Selection Page
 **Priority:** High  
 **Labels:** ui, page
 
@@ -238,7 +341,7 @@ Build the initial page where users select their job and configure income setting
 
 ---
 
-### Issue 11: Create Paycheck Detail View
+### Issue 14: Create Paycheck Detail View
 **Priority:** High  
 **Labels:** ui, component
 
@@ -262,7 +365,7 @@ Build a component that shows detailed paycheck breakdown with all deductions.
 
 ---
 
-### Issue 12: Create Lifestyle/Expenses Selection Page
+### Issue 15: Create Lifestyle/Expenses Selection Page
 **Priority:** High  
 **Labels:** ui, page
 
@@ -286,7 +389,7 @@ Build the page where users choose their lifestyle and expenses.
 
 ---
 
-### Issue 13: Create Monthly Summary Page
+### Issue 16: Create Monthly Summary Page
 **Priority:** High  
 **Labels:** ui, page
 
@@ -312,7 +415,7 @@ Build the page that shows the monthly budget summary and results.
 
 ---
 
-### Issue 14: Create "What If" Comparison Tool
+### Issue 17: Create "What If" Comparison Tool
 **Priority:** Medium  
 **Labels:** ui, feature
 
@@ -337,7 +440,7 @@ Build an interactive tool for comparing different financial scenarios.
 
 ---
 
-### Issue 15: Build Reusable UI Components Library
+### Issue 18: Build Reusable UI Components Library
 **Priority:** Medium  
 **Labels:** ui, components
 
@@ -361,7 +464,7 @@ Create a library of reusable components used throughout the application.
 
 ---
 
-### Issue 16: Add Data Visualization Charts
+### Issue 19: Add Data Visualization Charts
 **Priority:** Medium  
 **Labels:** ui, visualization
 
@@ -386,7 +489,7 @@ Integrate charts for visualizing financial data over time.
 
 ## Phase 4: Data & Configuration
 
-### Issue 17: Populate Comprehensive Price Book
+### Issue 20: Populate Comprehensive Price Book
 **Priority:** Medium  
 **Labels:** data, content
 
@@ -410,7 +513,7 @@ Expand JSON data files with comprehensive, realistic pricing data.
 
 ---
 
-### Issue 18: Configure Accurate Tax Information
+### Issue 21: Configure Accurate Tax Information
 **Priority:** High  
 **Labels:** data, taxes
 
@@ -433,7 +536,7 @@ Set up accurate tax brackets and rates for federal and state taxes.
 
 ---
 
-### Issue 19: Define Benefit Plan Options
+### Issue 22: Define Benefit Plan Options
 **Priority:** Medium  
 **Labels:** data, benefits
 
@@ -456,7 +559,7 @@ Create realistic benefit plan options with costs and coverage.
 
 ---
 
-### Issue 20: Configure Random Life Events
+### Issue 23: Configure Random Life Events
 **Priority:** Medium  
 **Labels:** data, game-logic
 
@@ -481,7 +584,7 @@ Create a comprehensive list of random life events with probabilities and costs.
 
 ## Phase 5: Features & Polish
 
-### Issue 21: Implement Local Storage for Profile Saving
+### Issue 24: Implement Local Storage for Profile Saving
 **Priority:** Medium  
 **Labels:** feature, storage
 
@@ -504,7 +607,7 @@ Add functionality to save and load player profiles using browser local storage.
 
 ---
 
-### Issue 22: Add Advanced Tax Calculation Mode
+### Issue 25: Add Advanced Tax Calculation Mode
 **Priority:** Low  
 **Labels:** feature, enhancement
 
@@ -527,7 +630,7 @@ Implement a more detailed tax calculation mode with real tax brackets.
 
 ---
 
-### Issue 23: Implement Stress Meter Calculation
+### Issue 26: Implement Stress Meter Calculation
 **Priority:** Low  
 **Labels:** feature, game-logic
 
@@ -551,7 +654,7 @@ Create a "stress meter" that reflects the player's financial burden.
 
 ---
 
-### Issue 24: Implement Credit Score Tracking
+### Issue 27: Implement Credit Score Tracking
 **Priority:** Medium  
 **Labels:** feature, game-logic
 
@@ -576,7 +679,7 @@ Add a simplified credit score system that responds to player actions.
 
 ---
 
-### Issue 25: Create Game Tutorial/Onboarding
+### Issue 28: Create Game Tutorial/Onboarding
 **Priority:** Medium  
 **Labels:** ui, ux
 
@@ -599,7 +702,7 @@ Build an onboarding experience for first-time players.
 
 ---
 
-### Issue 26: Add Settings and Configuration Page
+### Issue 29: Add Settings and Configuration Page
 **Priority:** Low  
 **Labels:** ui, feature
 
@@ -623,7 +726,7 @@ Create a settings page for game configuration and preferences.
 
 ---
 
-### Issue 27: Implement Comparison View for Scenarios
+### Issue 30: Implement Comparison View for Scenarios
 **Priority:** Low  
 **Labels:** feature, ui
 
@@ -646,7 +749,7 @@ Create a view to compare different financial scenarios side-by-side.
 
 ---
 
-### Issue 28: Add Export/Share Functionality
+### Issue 31: Add Export/Share Functionality
 **Priority:** Low  
 **Labels:** feature, enhancement
 
@@ -669,7 +772,7 @@ Allow users to export or share their financial scenarios.
 
 ---
 
-### Issue 29: Create Responsive Mobile Layout
+### Issue 32: Create Responsive Mobile Layout
 **Priority:** High  
 **Labels:** ui, mobile, responsive
 
@@ -692,7 +795,7 @@ Ensure the application works well on mobile devices.
 
 ---
 
-### Issue 30: Write Documentation and README
+### Issue 33: Write Documentation and README
 **Priority:** Medium  
 **Labels:** documentation
 
@@ -718,7 +821,7 @@ Create comprehensive documentation for the project.
 
 ## Testing & Quality Assurance
 
-### Issue 31: Set Up Testing Infrastructure
+### Issue 34: Set Up Testing Infrastructure
 **Priority:** High  
 **Labels:** testing, infrastructure
 
@@ -740,7 +843,7 @@ Configure testing tools and create initial test suite.
 
 ---
 
-### Issue 32: Write Unit Tests for Calculation Logic
+### Issue 35: Write Unit Tests for Calculation Logic
 **Priority:** High  
 **Labels:** testing
 
@@ -764,7 +867,7 @@ Create comprehensive unit tests for all calculation functions.
 
 ---
 
-### Issue 33: Write Component Tests
+### Issue 36: Write Component Tests
 **Priority:** Medium  
 **Labels:** testing, ui
 
@@ -787,7 +890,7 @@ Create tests for React components.
 
 ---
 
-### Issue 34: Conduct Accessibility Audit
+### Issue 37: Conduct Accessibility Audit
 **Priority:** Medium  
 **Labels:** accessibility, a11y
 
@@ -810,7 +913,7 @@ Ensure the application is accessible to all users.
 
 ---
 
-### Issue 35: Performance Optimization
+### Issue 38: Performance Optimization
 **Priority:** Low  
 **Labels:** performance, optimization
 
@@ -836,7 +939,7 @@ Optimize application performance for smooth user experience.
 
 ## Deployment
 
-### Issue 36: Set Up Deployment Pipeline
+### Issue 39: Set Up Deployment Pipeline
 **Priority:** Medium  
 **Labels:** deployment, infrastructure
 
@@ -859,7 +962,7 @@ Configure deployment to hosting platform.
 
 ---
 
-### Issue 37: Create Demo Mode
+### Issue 40: Create Demo Mode
 **Priority:** Low  
 **Labels:** feature, demo
 
@@ -883,29 +986,34 @@ Create a demo mode with pre-populated scenarios for showcasing.
 
 ## Summary
 
-This represents **37 work items** organized into phases:
-- **Phase 1:** 3 issues (Project Setup)
-- **Phase 2:** 6 issues (Core Logic)
-- **Phase 3:** 7 issues (UI)
-- **Phase 4:** 4 issues (Data)
+This represents **40 work items** organized into phases:
+- **Phase 1:** 6 issues (Project Setup - Frontend TypeScript + Backend .NET)
+- **Phase 2:** 6 issues (Core Logic - Backend calculations)
+- **Phase 3:** 7 issues (UI - Frontend TypeScript components)
+- **Phase 4:** 4 issues (Data configuration)
 - **Phase 5:** 8 issues (Features & Polish)
-- **Testing:** 5 issues
-- **Deployment:** 2 issues
+- **Testing:** 5 issues (Frontend + Backend tests)
+- **Deployment:** 4 issues (Frontend + Backend deployment)
+
+**Architecture:**
+- **Frontend:** Next.js 14+ with TypeScript (required)
+- **Backend:** .NET Core 10 with Minimal API (required)
+- **Communication:** RESTful API
 
 **Recommended Implementation Order:**
-1. Start with Phase 1 (foundation)
-2. Build Phase 2 (core logic with tests)
-3. Create Phase 3 (UI)
+1. Start with Phase 1 (setup both frontend and backend)
+2. Build Phase 2 (backend calculation API with tests)
+3. Create Phase 3 (frontend UI consuming backend API)
 4. Populate Phase 4 (data)
 5. Add Phase 5 (enhancements)
 6. Complete testing and deployment
 
 **Estimated Timeline:**
-- **MVP (Issues 1-13, 17-19, 31-32):** 4-6 weeks
-- **Full Featured (All remaining issues):** 8-12 weeks
+- **MVP (Issues 1-6, 7-12, 13-16, 20-21):** 4-6 weeks
+- **Full Featured (All 40 issues):** 8-12 weeks
 
 **Priority Levels:**
-- **High:** Core functionality needed for MVP
+- **High:** Core functionality needed for MVP (frontend + backend)
 - **Medium:** Important features for complete experience
 - **Low:** Nice-to-have enhancements
 

@@ -2,25 +2,38 @@
 
 This document provides a quick reference and recommended implementation path for the Adulting Simulator project.
 
+## Tech Stack Overview
+
+**Frontend:** Next.js 14+ with **TypeScript** (App Router)  
+**Backend:** **.NET Core 10** with **Minimal API**  
+**Architecture:** Separated frontend and backend with RESTful API communication
+
 ## Quick Start Guide
 
 ### Prerequisites
 Before starting implementation, you'll need:
-- Node.js (v18 or later)
-- npm or yarn
-- Basic understanding of React/Next.js
-- TypeScript knowledge (recommended)
+- **Frontend:**
+  - Node.js (v18 or later)
+  - npm or yarn
+  - TypeScript knowledge (required)
+  - Basic understanding of React/Next.js
+- **Backend:**
+  - .NET Core 10 SDK
+  - C# knowledge
+  - Understanding of Minimal API pattern
 
 ### First Steps
 1. Review the [Design document](/Design) to understand the vision
 2. Review [WORK_ITEMS.md](/WORK_ITEMS.md) for all implementation tasks
-3. Set up the project (Issues #1-3)
-4. Start building core logic (Issues #4-9)
+3. Set up both frontend and backend projects (Issues #1-2)
+4. Define data models for both TypeScript and C# (Issues #3-4)
+5. Set up API communication layer (Issue #6)
 
 ## Project Architecture
 
+### Frontend (TypeScript/Next.js)
 ```
-adulting-simulator/
+frontend/
 ├── src/
 │   ├── app/                 # Next.js app directory (pages)
 │   │   ├── page.tsx        # Home/start page
@@ -33,30 +46,43 @@ adulting-simulator/
 │   │   ├── PaycheckDetail.tsx
 │   │   ├── CashFlowChart.tsx
 │   │   └── ...
-│   ├── lib/                 # Core business logic
-│   │   ├── income.ts       # Income calculations
-│   │   ├── taxes.ts        # Tax calculations
-│   │   ├── benefits.ts     # Benefits logic
-│   │   ├── expenses.ts     # Expense tracking
-│   │   ├── lifeEvents.ts   # Random events
-│   │   ├── cashFlow.ts     # Monthly cash flow
-│   │   ├── creditScore.ts  # Credit score logic
+│   ├── lib/                 # API client and utilities
+│   │   ├── api-client.ts   # Backend API calls
 │   │   └── storage.ts      # Local storage
 │   ├── types/               # TypeScript definitions
 │   │   ├── job.ts
 │   │   ├── expense.ts
 │   │   ├── player.ts
+│   │   ├── api.ts          # API request/response types
 │   │   └── ...
-│   └── data/                # JSON configuration
-│       ├── jobs.json
-│       ├── housing.json
-│       ├── subscriptions.json
-│       ├── taxes.json
-│       ├── benefits.json
-│       └── lifeEvents.json
+│   └── data/                # Static JSON (optional)
 ├── public/                  # Static assets
-├── tests/                   # Test files
-└── docs/                    # Additional documentation
+└── tests/                   # Frontend tests
+```
+
+### Backend (.NET Core 10 Minimal API)
+```
+backend/
+├── Program.cs               # Minimal API endpoints
+├── Services/
+│   ├── CalculationService.cs
+│   ├── TaxService.cs
+│   └── DataService.cs
+├── Models/
+│   ├── Job.cs
+│   ├── TaxConfiguration.cs
+│   ├── Expense.cs
+│   └── PlayerState.cs
+├── DTOs/
+│   ├── IncomeRequest.cs
+│   ├── TaxCalculationRequest.cs
+│   └── CashFlowResponse.cs
+├── Data/                    # JSON configuration files
+│   ├── jobs.json
+│   ├── housing.json
+│   ├── taxes.json
+│   └── ...
+└── Tests/                   # Backend tests
 ```
 
 ## Implementation Phases
@@ -86,51 +112,53 @@ adulting-simulator/
    - Any analytics or tracking requirements?
 
 ### Phase 1: Foundation (Week 1-2)
-**Goal:** Get a working Next.js project with core types and data structures.
+**Goal:** Get working Next.js and .NET Core projects with data models.
 
 **Critical Path:**
-1. Issue #1: Initialize Next.js Project → 1 day
-2. Issue #2: Define Core Data Models → 2 days
-3. Issue #3: Create JSON Configuration Files → 2 days
-4. Issue #31: Set Up Testing Infrastructure → 1 day
+1. Issue #1: Initialize Next.js Frontend with TypeScript → 1 day
+2. Issue #2: Initialize .NET Core 10 Backend with Minimal API → 1 day
+3. Issue #3: Define TypeScript Types for Frontend → 1 day
+4. Issue #4: Define C# Models for Backend → 1 day
+5. Issue #5: Create JSON Configuration Files → 1 day
+6. Issue #6: Implement Backend Calculation API → 2 days
 
-**Deliverable:** Empty Next.js app with types and sample data.
+**Deliverable:** Both frontend and backend running with API communication.
 
 ### Phase 2: Core Calculations (Week 3-4)
-**Goal:** Build and test all calculation logic.
+**Goal:** Build and test all calculation logic in backend.
 
 **Critical Path:**
-1. Issue #4: Income Calculation Engine → 2 days
-2. Issue #5: Tax Calculation System → 3 days
-3. Issue #6: Benefits Deduction System → 2 days
-4. Issue #7: Expense Tracking System → 2 days
-5. Issue #9: Monthly Cash Flow Calculator → 2 days
-6. Issue #32: Write Unit Tests → 3 days
+1. Issue #7: Income Calculation Engine (Backend) → 2 days
+2. Issue #8: Tax Calculation System (Backend) → 3 days
+3. Issue #9: Benefits Deduction System (Backend) → 2 days
+4. Issue #10: Expense Tracking System (Backend) → 2 days
+5. Issue #12: Monthly Cash Flow Calculator (Backend) → 2 days
+6. Backend unit tests → 3 days
 
-**Deliverable:** Fully tested calculation engine.
+**Deliverable:** Fully tested backend calculation API.
 
 ### Phase 3: Minimum Viable UI (Week 5-7)
-**Goal:** Create basic user interface for core gameplay loop.
+**Goal:** Create frontend UI consuming backend API.
 
 **Critical Path:**
-1. Issue #15: Build Reusable UI Components → 3 days
-2. Issue #10: Job Selection Page → 2 days
-3. Issue #11: Paycheck Detail View → 2 days
-4. Issue #12: Lifestyle/Expenses Selection → 3 days
-5. Issue #13: Monthly Summary Page → 3 days
-6. Issue #29: Responsive Mobile Layout → 2 days
+1. Issue #18: Build Reusable UI Components → 3 days
+2. Issue #13: Job Selection Page (TypeScript) → 2 days
+3. Issue #14: Paycheck Detail View (TypeScript) → 2 days
+4. Issue #15: Lifestyle/Expenses Selection (TypeScript) → 3 days
+5. Issue #16: Monthly Summary Page (TypeScript) → 3 days
+6. Mobile responsive layout → 2 days
 
-**Deliverable:** Playable MVP from start to summary.
+**Deliverable:** Playable MVP from start to summary with API integration.
 
 ### Phase 4: Data & Events (Week 8)
 **Goal:** Populate with realistic data and add random events.
 
 **Critical Path:**
-1. Issue #17: Populate Comprehensive Price Book → 2 days
-2. Issue #18: Configure Accurate Tax Information → 1 day
-3. Issue #19: Define Benefit Plan Options → 1 day
-4. Issue #8: Random Life Events System → 2 days
-5. Issue #20: Configure Random Life Events → 1 day
+1. Issue #20: Populate Comprehensive Price Book → 2 days
+2. Issue #21: Configure Accurate Tax Information → 1 day
+3. Issue #22: Define Benefit Plan Options → 1 day
+4. Issue #11: Random Life Events System → 2 days
+5. Issue #23: Configure Random Life Events → 1 day
 
 **Deliverable:** Rich, realistic simulation experience.
 
@@ -138,11 +166,11 @@ adulting-simulator/
 **Goal:** Add features that enhance educational value.
 
 **Critical Path:**
-1. Issue #21: Local Storage for Profiles → 2 days
-2. Issue #16: Data Visualization Charts → 3 days
-3. Issue #24: Credit Score Tracking → 2 days
-4. Issue #14: "What If" Comparison Tool → 3 days
-5. Issue #25: Game Tutorial/Onboarding → 2 days
+1. Local Storage for Profiles (Frontend) → 2 days
+2. Issue #19: Data Visualization Charts (TypeScript) → 3 days
+3. Credit Score Tracking (Backend + Frontend) → 2 days
+4. Issue #17: "What If" Comparison Tool (TypeScript) → 3 days
+5. Game Tutorial/Onboarding (Frontend) → 2 days
 
 **Deliverable:** Feature-complete application.
 
@@ -150,8 +178,9 @@ adulting-simulator/
 **Goal:** Ensure quality and accessibility.
 
 **Critical Path:**
-1. Issue #33: Component Tests → 3 days
-2. Issue #34: Accessibility Audit → 2 days
+1. Frontend Component Tests (TypeScript/Jest) → 3 days
+2. Backend Integration Tests (.NET/xUnit) → 3 days
+3. Accessibility Audit → 2 days
 3. Issue #35: Performance Optimization → 2 days
 4. Issue #30: Documentation and README → 2 days
 5. Issue #36: Deployment Pipeline → 1 day
