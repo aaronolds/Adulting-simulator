@@ -322,11 +322,12 @@ Create the main cash flow engine that ties income, expenses, and events together
 **Labels:** ui, page
 
 **Description:**
-Build the initial page where users select their job and configure income settings.
+Build the initial page where users select their job and configure income settings. Jobs should have education requirements that users must meet.
 
 **Tasks:**
 - Create `pages/job.tsx` (or app router equivalent)
-- Display job options from JSON data
+- Display job options from JSON data with education requirements
+- Filter or indicate jobs based on education level (high school, college, etc.)
 - Allow selection of salary vs hourly wage
 - Configure hours per week for hourly jobs
 - Select pay frequency
@@ -334,7 +335,8 @@ Build the initial page where users select their job and configure income setting
 - Add navigation to next step
 
 **Acceptance Criteria:**
-- Page displays all job options
+- Page displays all job options with education requirements
+- Jobs are organized or filtered by education level
 - Job selection updates state
 - Calculated income is shown
 - User can proceed to next step
@@ -494,22 +496,29 @@ Integrate charts for visualizing financial data over time.
 **Labels:** data, content
 
 **Description:**
-Expand JSON data files with comprehensive, realistic pricing data.
+Expand JSON data files with comprehensive, realistic pricing data covering all US states with location-based pricing.
 
 **Tasks:**
-- Add 15-20 job options with realistic salaries
-- Add rent tiers for 5-10 major cities
+- Add 15-20 job options with realistic salaries and education requirements (high school, college, etc.)
+- Include wide range of jobs: entry-level (minimum wage to $40k) to professional careers (engineer, nurse, teacher)
+- Add rent tiers for multiple cities representing low, medium, and high cost-of-living areas
+- Add location selection feature data (all US states)
 - Add 20+ subscription service options
-- Add detailed transportation costs
-- Add grocery price ranges
+- Add detailed transportation costs by location
+- Add grocery price ranges by region
 - Add utility costs by region
 - Research and validate all prices against real data
+- Ensure diverse job examples for inclusive design
 
 **Acceptance Criteria:**
+- Job data includes education requirements for each position
+- Data covers all US states for location-based pricing
+- Prices vary realistically by location
 - Data covers wide range of scenarios
 - Prices are realistic and current
 - Multiple options exist for each category
 - Data is well-organized and documented
+- Job options represent diverse careers and backgrounds
 
 ---
 
@@ -518,21 +527,25 @@ Expand JSON data files with comprehensive, realistic pricing data.
 **Labels:** data, taxes
 
 **Description:**
-Set up accurate tax brackets and rates for federal and state taxes.
+Set up accurate tax brackets and rates for federal and state taxes covering all US states. Start with simplified calculations, with capability to add advanced mode later.
 
 **Tasks:**
 - Add current federal tax brackets for single filers
 - Add current federal tax brackets for married filers
-- Add tax rates for 10+ major states
+- Add tax rates for all US states (or indicate states with no income tax)
 - Configure FICA rates (Social Security, Medicare)
 - Add standard deduction amounts
 - Document tax year for the data
+- Implement simplified tax calculation as the default
+- Design structure to support advanced mode addition in future
 
 **Acceptance Criteria:**
 - Tax data is accurate for current/recent tax year
 - Both filing statuses are supported
-- Multiple states are represented
-- Documentation explains tax calculations
+- All US states are represented
+- Simplified tax calculations work correctly
+- Code structure allows for future advanced mode
+- Documentation explains tax calculations and simplifications
 
 ---
 
@@ -944,21 +957,27 @@ Optimize application performance for smooth user experience.
 **Labels:** deployment, infrastructure
 
 **Description:**
-Configure deployment to hosting platform.
+Configure deployment to Azure hosting platform for both frontend and backend.
 
 **Tasks:**
-- Choose hosting platform (Vercel, Netlify, etc.)
-- Configure deployment settings
-- Set up automatic deployment from main branch
-- Configure environment variables if needed
-- Set up custom domain (if applicable)
-- Test deployment process
+- Configure Azure App Service for .NET Core 10 backend
+- Configure Azure Static Web Apps or Azure App Service for Next.js frontend
+- Set up automatic deployment from main branch (CI/CD pipeline)
+- Configure environment variables for both frontend and backend
+- Set up custom domain when available
+- Configure SSL certificates
+- Set up privacy-focused analytics (no personal data collection)
+- Test deployment process for both services
+- Document deployment process
 
 **Acceptance Criteria:**
-- App deploys successfully
-- Automatic deployment works
-- Production build is optimized
-- Site is accessible via URL
+- Backend API deploys successfully to Azure
+- Frontend app deploys successfully to Azure
+- Automatic deployment works for both services
+- Production builds are optimized
+- Both services are accessible via URLs
+- API communication between frontend and backend works in production
+- Analytics configured with privacy protections
 
 ---
 

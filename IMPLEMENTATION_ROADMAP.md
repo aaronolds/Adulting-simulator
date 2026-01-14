@@ -87,29 +87,40 @@ backend/
 
 ## Implementation Phases
 
-### Phase 0: Planning & Questions (START HERE)
-**Before implementing, clarify these questions:**
+### Phase 0: Planning & Questions ✅ **COMPLETED**
+**Key decisions have been made through QUESTIONS.md:**
 
-1. **Target Audience:**
-   - What age range are the kids? (This affects complexity and UI design)
-   - Is this for home use or classroom use?
+1. **Target Audience:** ✅ **Decided**
+   - Age range: High school and college/young adults (15-25 years)
+   - Use case: Home use by individual families AND classroom setting (teacher-led)
 
-2. **Geographic Scope:**
-   - Should we focus on a specific state or keep it generic US?
-   - Do we need to support different regions/countries?
+2. **Geographic Scope:** ✅ **Decided**
+   - Coverage: All US states
+   - Users can choose their location for accurate pricing and taxes
 
-3. **Tax Complexity:**
-   - Start with simple percentage-based taxes or real brackets?
-   - How detailed should state taxes be?
+3. **Tax Complexity:** ✅ **Decided**
+   - Start simple, add advanced mode later (recommended approach confirmed)
+   - Begin with simplified calculations, then add detailed state-specific taxes
 
-4. **Feature Priority:**
-   - Which features are must-haves vs nice-to-haves?
-   - Is there a target launch date?
+4. **Feature Priority:** ✅ **Decided**
+   - **Critical for MVP:** Job selection, tax calculation, expense selection, monthly budget summary
+   - **Important:** Savings tracking, 401k/retirement planning, health insurance
+   - **Nice-to-have:** Random life events, debt tracking, credit score, multi-month progression
 
-5. **Technical Preferences:**
-   - Any preferred hosting platform?
-   - Any design system or UI framework preferences?
-   - Any analytics or tracking requirements?
+5. **Technical Preferences:** ✅ **Decided**
+   - Hosting: Azure (both frontend and backend)
+   - Design system: Tailwind CSS
+   - Analytics: Privacy-focused only (no personal data)
+   - Domain: Will be determined later
+
+6. **Additional Requirements:** ✅ **Confirmed**
+   - Must work offline (offline-first)
+   - Must be very fast (<1 second load time)
+   - Must be printable
+   - Jobs have education requirements
+   - Wide range of jobs from entry-level to professional careers
+   - Standard web accessibility
+   - Inclusive design (diverse jobs, various family structures, different starting points)
 
 ### Phase 1: Foundation (Week 1-2)
 **Goal:** Get working Next.js and .NET Core projects with data models.
@@ -407,13 +418,16 @@ test('displays gross and net pay', () => {
 - [ ] README has deployment instructions
 
 ### Deployment:
-- [ ] Environment variables configured
-- [ ] Build process succeeds
-- [ ] Production build tested locally
-- [ ] Deployment platform configured
-- [ ] Custom domain configured (if applicable)
+- [ ] Environment variables configured (Frontend and Backend)
+- [ ] Backend build process succeeds (.NET Core 10)
+- [ ] Frontend build process succeeds (Next.js)
+- [ ] Production builds tested locally
+- [ ] Azure deployment configured (both frontend and backend)
+- [ ] Azure App Service configured for backend
+- [ ] Azure Static Web Apps or App Service configured for frontend
+- [ ] Custom domain configured (when available)
 - [ ] SSL certificate valid
-- [ ] Analytics configured (if needed)
+- [ ] Privacy-focused analytics configured (no personal data collection)
 
 ### Post-Deployment:
 - [ ] Smoke test all major features
@@ -433,6 +447,10 @@ test('displays gross and net pay', () => {
 - [Next.js Documentation](https://nextjs.org/docs)
 - [React Documentation](https://react.dev/)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [.NET Core Documentation](https://learn.microsoft.com/en-us/dotnet/core/)
+- [ASP.NET Core Minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis)
+- [Azure App Service Documentation](https://learn.microsoft.com/en-us/azure/app-service/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
 ### Design Inspiration:
 - [Money Simulator Games](https://www.google.com/search?q=budget+simulator+games)
