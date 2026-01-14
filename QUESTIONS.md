@@ -129,7 +129,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 **Question:** How realistic should the financial simulation be?
 - [ ] **Simplified:** Round numbers, approximate taxes, general concepts
 - [ ] **Realistic:** Accurate calculations, real prices, true-to-life complexity
-- [ ] **Balanced:** Accurate numbers but simplified presentation (recommended)
+- [x] **Balanced:** Accurate numbers but simplified presentation (recommended)
 
 **Why this matters:** Too simple might not be educational enough; too complex might be overwhelming.
 
