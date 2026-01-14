@@ -10,8 +10,8 @@ Before starting the implementation of the Adulting Simulator, please answer thes
 **Question:** What is the age range of the primary users (your kids)?
 - [ ] Elementary (ages 8-11)
 - [ ] Middle school (ages 12-14)
-- [ ] High school (ages 15-18)
-- [ ] College/Young adults (ages 18-25)
+- [x] High school (ages 15-18)
+- [x] College/Young adults (ages 18-25)
 - [ ] Mixed ages
 - [ ] Other: _______________
 
@@ -19,8 +19,8 @@ Before starting the implementation of the Adulting Simulator, please answer thes
 
 ### Use Case
 **Question:** How will this tool be used?
-- [ ] Home use by individual families
-- [ ] Classroom setting (teacher-led)
+- [x] Home use by individual families
+- [x] Classroom setting (teacher-led)
 - [ ] After-school program
 - [ ] Self-guided learning by teens
 - [ ] Financial literacy workshops
@@ -36,7 +36,7 @@ Before starting the implementation of the Adulting Simulator, please answer thes
 **Question:** Which state/region should we optimize for?
 - [ ] Generic US (no specific state)
 - [ ] Specific state: _______________
-- [ ] Multiple specific states: _______________
+- [x] Multiple specific states: all states
 - [ ] International (which country/countries?): _______________
 
 **Why this matters:** State income tax rates vary significantly (0% to 13%+), and cost of living differs by region. This affects the default data we include.
@@ -46,7 +46,7 @@ Before starting the implementation of the Adulting Simulator, please answer thes
 - [ ] **Simple:** Fixed percentages by income bracket (easier to understand, less accurate)
 - [ ] **Moderate:** Real tax brackets but simplified state taxes
 - [ ] **Detailed:** Full federal brackets and state-specific taxes
-- [ ] **Start simple, add advanced mode later** (recommended)
+- [x] **Start simple, add advanced mode later** (recommended)
 
 **Why this matters:** More accurate taxes are more educational but also more complex to implement and understand.
 
@@ -59,21 +59,21 @@ Before starting the implementation of the Adulting Simulator, please answer thes
 
 Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 
-- [ ] Job selection and income calculation - _____________
-- [ ] Tax calculation and deductions - _____________
-- [ ] Expense selection (housing, food, etc.) - _____________
-- [ ] Monthly budget summary - _____________
-- [ ] Random life events (car repair, etc.) - _____________
-- [ ] Savings tracking - _____________
-- [ ] Debt tracking (student loans, credit cards) - _____________
-- [ ] Credit score simulation - _____________
-- [ ] 401k and retirement planning - _____________
-- [ ] Health insurance selection - _____________
-- [ ] Multi-month progression - _____________
-- [ ] "What if" comparison tool - _____________
-- [ ] Charts and visualizations - _____________
-- [ ] Save/load profiles - _____________
-- [ ] Tutorial/onboarding - _____________
+- [x] Job selection and income calculation - critical
+- [x] Tax calculation and deductions - critical
+- [x] Expense selection (housing, food, etc.) - critical.
+- [x] Monthly budget summary - important
+- [X] Random life events (car repair, etc.) - nice to have.
+- [ c] Savings tracking - important
+- [x ] Debt tracking (student loans, credit cards) - nice to have
+- [ ] Credit score simulation - nice to have
+- [ ] 401k and retirement planning - important 
+- [ ] Health insurance selection - important
+- [ ] Multi-month progression - nice to have
+- [ ] "What if" comparison tool - nice to have
+- [ ] Charts and visualizations - nice to have
+- [ ] Save/load profiles - nice to have
+- [ ] Tutorial/onboarding - nice to have
 
 ### Additional Features
 **Question:** Are there any features NOT in the design document that you'd like to add?
@@ -93,7 +93,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 - [ ] GitHub Pages
 - [ ] Your own server
 - [ ] No preference / you decide
-- [ ] Other: _______________
+- [ x] Other: azure 
 
 **Why this matters:** Some platforms have limitations or special requirements.
 
@@ -101,11 +101,11 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 **Question:** Do you have a custom domain for this project?
 - [ ] Yes: _______________
 - [ ] No, will use hosting provider's domain
-- [ ] Will get one later
+- [ x] Will get one later
 
 ### Design System
 **Question:** Any preference for UI framework or design system?
-- [ ] Tailwind CSS (recommended, highly customizable)
+- [ x] Tailwind CSS (recommended, highly customizable)
 - [ ] Material-UI / MUI (Google's Material Design)
 - [ ] Chakra UI (accessible components)
 - [ ] Custom CSS
@@ -117,7 +117,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 ### Analytics
 **Question:** Do you want to track usage analytics?
 - [ ] Yes, please include Google Analytics (or similar)
-- [ ] Yes, but privacy-focused only (no personal data)
+- [x ] Yes, but privacy-focused only (no personal data)
 - [ ] No analytics needed
 - [ ] Decide later
 
@@ -128,7 +128,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 ### Realism Level
 **Question:** How realistic should the financial simulation be?
 - [ ] **Simplified:** Round numbers, approximate taxes, general concepts
-- [ ] **Realistic:** Accurate calculations, real prices, true-to-life complexity
+- [  ] **Realistic:** Accurate calculations, real prices, true-to-life complexity
 - [ ] **Balanced:** Accurate numbers but simplified presentation (recommended)
 
 **Why this matters:** Too simple might not be educational enough; too complex might be overwhelming.
@@ -138,7 +138,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 - [ ] National averages
 - [ ] Specific city/region: _______________
 - [ ] Range of cities (low, medium, high cost)
-- [ ] Let users choose their location
+- [x] Let users choose their location
 
 **Why this matters:** A $1,500 apartment is cheap in San Francisco but expensive in rural Texas.
 
@@ -148,11 +148,11 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 - [ ] Wide range (minimum wage to six figures)
 - [ ] Focus on common jobs for young people (retail, food service, etc.)
 - [ ] Include professional careers (engineer, nurse, teacher, etc.)
-- [ ] All of the above
+- [x] All of the above
 
 **Question:** Should jobs have requirements?
 - [ ] No requirements, all jobs available
-- [ ] Education requirements (high school, college, etc.)
+- [x] Education requirements (high school, college, etc.)
 - [ ] Unlock jobs as simulation progresses
 - [ ] Other: _______________
 
@@ -163,9 +163,9 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 ### Learning Objectives
 **Question:** What are the top 3 things you want users to learn?
 
-1. _______________
-2. _______________
-3. _______________
+1. Financial responsibility.
+2. Understanding taxes.
+3. Impact of lifestyle choices on budget.
 
 Examples:
 - Understanding take-home vs. gross pay
@@ -178,9 +178,9 @@ Examples:
 ### Teaching Style
 **Question:** How should the app teach concepts?
 - [ ] Explicit lessons/tutorials upfront
-- [ ] Learning by doing (discover through gameplay)
+- [] Learning by doing (discover through gameplay)
 - [ ] Tooltips and hints throughout
-- [ ] Combination of all above (recommended)
+- [x] Combination of all above (recommended)
 - [ ] Other: _______________
 
 ---
@@ -189,13 +189,13 @@ Examples:
 
 ### Timeline
 **Question:** Is there a target launch date or deadline?
-- [ ] No rush, quality is more important than speed
+- [c] No rush, quality is more important than speed
 - [ ] Target date: _______________
 - [ ] Specific event/milestone: _______________
 
 **Question:** Do you need the full feature set by that date, or is an MVP sufficient?
 - [ ] Full feature set required
-- [ ] MVP first, then iterate
+- [x] MVP first, then iterate
 - [ ] Whatever is reasonable
 
 ### Resources
@@ -204,7 +204,7 @@ Examples:
 - [ ] Yes, I can test with target users
 - [ ] Yes, I can provide feedback on UX/design
 - [ ] Yes, I can help with documentation
-- [ ] No, need full implementation
+- [x] No, need full implementation
 - [ ] Other: _______________
 
 ---
@@ -216,13 +216,13 @@ Examples:
 
 Please rank these by importance (1 = most important):
 
-- [ ] Users understand budgeting better after using it (rank: ___)
-- [ ] Kids are engaged and enjoy using it (rank: ___)
-- [ ] Calculations are accurate and realistic (rank: ___)
-- [ ] App is easy to use without instructions (rank: ___)
-- [ ] Works well on phones and tablets (rank: ___)
-- [ ] Users spend meaningful time exploring scenarios (rank: ___)
-- [ ] Positive feedback from teachers/parents (rank: ___)
+- [ ] Users understand budgeting better after using it (rank: 1)
+- [ ] Kids are engaged and enjoy using it (rank: 1)
+- [ ] Calculations are accurate and realistic (rank: 2_)
+- [ ] App is easy to use without instructions (rank: 1)
+- [ ] Works well on phones and tablets (rank: 1)
+- [ ] Users spend meaningful time exploring scenarios (rank: 1)
+- [ ] Positive feedback from teachers/parents (rank: 1)
 - [ ] Other: _______________ (rank: ___)
 
 ### Target Usage
@@ -230,7 +230,7 @@ Please rank these by importance (1 = most important):
 - [ ] Just my own family (1-10 users)
 - [ ] Local community/classroom (10-50 users)
 - [ ] Public website (could be hundreds+)
-- [ ] Don't know yet
+- [x] Don't know yet
 
 **Why this matters:** This affects hosting needs and whether we need user accounts.
 
@@ -244,7 +244,7 @@ Please rank these by importance (1 = most important):
 - [ ] Must have high contrast mode
 - [ ] Must work without mouse (keyboard only)
 - [ ] Must support multiple languages (which?): _______________
-- [ ] Standard web accessibility is fine
+- [x] Standard web accessibility is fine
 - [ ] Other: _______________
 
 ### Inclusivity
@@ -253,7 +253,7 @@ Please rank these by importance (1 = most important):
 - [ ] Support various family structures
 - [ ] Acknowledge different starting points (debt, family support)
 - [ ] Avoid assumptions about "normal" life paths
-- [ ] All of the above (recommended)
+- [x] All of the above (recommended)
 - [ ] Other: _______________
 
 ---
@@ -264,10 +264,10 @@ Please rank these by importance (1 = most important):
 **Question:** What's your vision for this project beyond the initial release?
 
 - [ ] One-time project, minimal maintenance
-- [ ] Ongoing updates with new features
-- [ ] Community contributions welcome
+- [x] Ongoing updates with new features
+- [c] Community contributions welcome
 - [ ] Potential commercial use
-- [ ] Open source for others to use/modify
+- [x] Open source for others to use/modify
 - [ ] Not sure yet
 
 **Question:** Should we design with specific future features in mind?
@@ -286,16 +286,16 @@ _______________________________________________
 - [ ] Open source / volunteer work
 - [ ] Limited budget: $_______________
 - [ ] Flexible budget
-- [ ] Not applicable
+- [x] Not applicable
 
 **Why this matters:** This affects whether we can use paid services, premium UI libraries, or paid hosting.
 
 ### Technical Constraints
 **Question:** Are there any technical constraints or requirements?
-- [ ] Must work without internet (offline-first)
+- [x] Must work without internet (offline-first)
 - [ ] Must work on old browsers (which?): _______________
-- [ ] Must be very fast (<1 second load time)
-- [ ] Must be printable
+- [x] Must be very fast (<1 second load time)
+- [x] Must be printable
 - [ ] Must export data in specific format: _______________
 - [ ] No special constraints
 
@@ -305,7 +305,7 @@ _______________________________________________
 
 ### Name
 **Question:** Is "Adulting Simulator" the final name?
-- [ ] Yes, keep this name
+- [x] Yes, keep this name
 - [ ] No, the name should be: _______________
 - [ ] Not decided yet
 
@@ -315,7 +315,7 @@ _______________________________________________
 - [ ] Professional and serious (muted colors, minimal)
 - [ ] Balanced (engaging but not childish)
 - [ ] Match existing brand/website: _______________
-- [ ] No preference / you decide
+- [x] No preference / you decide
 
 **Question:** Any color preferences or requirements?
 _______________________________________________
