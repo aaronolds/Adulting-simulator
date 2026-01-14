@@ -63,9 +63,9 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 - [x] Tax calculation and deductions - critical
 - [x] Expense selection (housing, food, etc.) - critical.
 - [x] Monthly budget summary - important
-- [X] Random life events (car repair, etc.) - nice to have.
-- [ c] Savings tracking - important
-- [x ] Debt tracking (student loans, credit cards) - nice to have
+- [x] Random life events (car repair, etc.) - nice to have.
+- [x] Savings tracking - important
+- [x] Debt tracking (student loans, credit cards) - nice to have
 - [ ] Credit score simulation - nice to have
 - [ ] 401k and retirement planning - important 
 - [ ] Health insurance selection - important
@@ -93,7 +93,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 - [ ] GitHub Pages
 - [ ] Your own server
 - [ ] No preference / you decide
-- [ x] Other: azure 
+- [x] Other: azure 
 
 **Why this matters:** Some platforms have limitations or special requirements.
 
@@ -101,11 +101,11 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 **Question:** Do you have a custom domain for this project?
 - [ ] Yes: _______________
 - [ ] No, will use hosting provider's domain
-- [ x] Will get one later
+- [x] Will get one later
 
 ### Design System
 **Question:** Any preference for UI framework or design system?
-- [ x] Tailwind CSS (recommended, highly customizable)
+- [x] Tailwind CSS (recommended, highly customizable)
 - [ ] Material-UI / MUI (Google's Material Design)
 - [ ] Chakra UI (accessible components)
 - [ ] Custom CSS
@@ -117,7 +117,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 ### Analytics
 **Question:** Do you want to track usage analytics?
 - [ ] Yes, please include Google Analytics (or similar)
-- [x ] Yes, but privacy-focused only (no personal data)
+- [x] Yes, but privacy-focused only (no personal data)
 - [ ] No analytics needed
 - [ ] Decide later
 
@@ -128,7 +128,7 @@ Please mark each as **Critical**, **Important**, or **Nice-to-have**:
 ### Realism Level
 **Question:** How realistic should the financial simulation be?
 - [ ] **Simplified:** Round numbers, approximate taxes, general concepts
-- [  ] **Realistic:** Accurate calculations, real prices, true-to-life complexity
+- [ ] **Realistic:** Accurate calculations, real prices, true-to-life complexity
 - [ ] **Balanced:** Accurate numbers but simplified presentation (recommended)
 
 **Why this matters:** Too simple might not be educational enough; too complex might be overwhelming.
@@ -178,7 +178,7 @@ Examples:
 ### Teaching Style
 **Question:** How should the app teach concepts?
 - [ ] Explicit lessons/tutorials upfront
-- [] Learning by doing (discover through gameplay)
+- [ ] Learning by doing (discover through gameplay)
 - [ ] Tooltips and hints throughout
 - [x] Combination of all above (recommended)
 - [ ] Other: _______________
@@ -189,7 +189,7 @@ Examples:
 
 ### Timeline
 **Question:** Is there a target launch date or deadline?
-- [c] No rush, quality is more important than speed
+- [x] No rush, quality is more important than speed
 - [ ] Target date: _______________
 - [ ] Specific event/milestone: _______________
 
@@ -218,7 +218,7 @@ Please rank these by importance (1 = most important):
 
 - [ ] Users understand budgeting better after using it (rank: 1)
 - [ ] Kids are engaged and enjoy using it (rank: 1)
-- [ ] Calculations are accurate and realistic (rank: 2_)
+- [ ] Calculations are accurate and realistic (rank: 2)
 - [ ] App is easy to use without instructions (rank: 1)
 - [ ] Works well on phones and tablets (rank: 1)
 - [ ] Users spend meaningful time exploring scenarios (rank: 1)
@@ -265,7 +265,7 @@ Please rank these by importance (1 = most important):
 
 - [ ] One-time project, minimal maintenance
 - [x] Ongoing updates with new features
-- [c] Community contributions welcome
+- [x] Community contributions welcome
 - [ ] Potential commercial use
 - [x] Open source for others to use/modify
 - [ ] Not sure yet
